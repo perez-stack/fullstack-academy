@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+    width: 150%;
+
+  // Múltiples capas de fondo: 1º Imagen de la mujer, 2º Bloques de color beige y cian
+  background-image: 
+    url('../img/woman.svg'),
+    url('../img/spa.svg'),
+    linear-gradient(to right, $color-bg-beige 60%, $color-bg-cyan 40%);
+  
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: top right, right 15% top 10%, center;
+  background-size: 1000px, 350px, 100% 100%;
+
+
+}
+
+   

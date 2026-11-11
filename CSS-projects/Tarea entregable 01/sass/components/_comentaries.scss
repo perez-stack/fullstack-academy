@@ -1,0 +1,47 @@
+.hero__comentaries{
+    padding: 24px;
+    border-radius: 16px;
+    margin: 8px;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        color: $blue;
+    }
+    
+    &:before{
+        font-size: 84px;
+        line-height: 0.8;
+        display: block;
+        margin-bottom: 0;
+    }
+    .comentarie__description{
+        font-size: 13px;
+        font-weight: 200;
+        color: $black;
+    }
+    
+    .comentarie1 {
+        position: absolute;
+        width: 270px;
+        top: -400px;
+        left: 885px;
+        border-radius: 16px;
+        background-color: $bg-box;
+        z-index: 2;
+        padding: 18px
+    }
+
+    .comentarie2{
+        position: absolute;
+        width: 300px;
+        top: -160px;
+        left: 800px;
+        border-radius: 16px;
+        background-color: $bg-box;
+        z-index: 2;
+        padding: 18px
+    }
+}

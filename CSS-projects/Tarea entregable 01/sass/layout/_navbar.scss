@@ -1,0 +1,29 @@
+nav.nav-primary{
+    ul{
+        @include reset-list();
+        gap: 25px;
+        margin-left: 10px;
+        a {
+            color: $grey;
+            font-weight: 400;
+            text-decoration: none;
+            &:hover{
+                color: $blue;
+                font-weight: 500;
+            }
+        }
+         .more {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &::after {
+                content: "";
+                width: 6px;
+                height: 6px;
+                border-right: 2px solid $blue;
+                border-bottom: 2px solid $blue;
+                transform: rotate(45deg) translateY(-2px);
+            }
+         }
+    }
+}
