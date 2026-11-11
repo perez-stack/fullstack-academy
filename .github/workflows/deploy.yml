@@ -1,1 +1,56 @@
 
+name: Deploy first project to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: CSS-projects/Tarea entregable 01/package-lock.json
+
+      - name: Install dependencies
+        working-directory: CSS-projects/Tarea entregable 01
+        run: npm ci
+
+      - name: Build project
+        working-directory: CSS-projects/Tarea entregable 01
+        run: npm run build
+
+      - name: Upload production files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: CSS-projects/Tarea entregable 01/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
