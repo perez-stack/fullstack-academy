@@ -37,10 +37,15 @@ jobs:
         working-directory: CSS-projects/Tarea entregable 01
         run: npm run build
 
+      - name: Prepare project pages
+        run: |
+          mkdir -p _site/css-projects/tarea-entregable-01
+          cp -R "CSS-projects/Tarea entregable 01/dist/." "_site/css-projects/tarea-entregable-01/"
+
       - name: Upload production files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: CSS-projects/Tarea entregable 01/dist
+          path: _site
 
   deploy:
     environment:
